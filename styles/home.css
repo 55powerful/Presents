@@ -2,6 +2,11 @@ body {
   margin: 0; /*Removes margin of website*/
 }
 
+::-webkit-scrollbar {
+  /*? This hides Scrollbar on page, but keeps functionality*/
+  display: none;
+}
+
 /*? Typography Section*/
 #site-title h1 {
   font-weight: 400;
@@ -67,6 +72,57 @@ nav a:focus {
   color: #ff4b4b;
 }
 
+/*? Carousel Wrapper Styles & Formats */
+
+#carousel-wrapper {
+  /*Changes color of entire div*/
+  background-color: #f1f1f1;
+}
+
+#header1 {
+  width: 40%;
+  margin: 0 auto;
+  padding: 0.6rem; /*This keeps margin to the top but adds space*/
+  text-align: center; /*Centers within div itself*/
+}
+
+#header1 h1 {
+  font-weight: 700;
+  letter-spacing: 0.1rem;
+  color: rgb(0, 0, 0);
+  font-size: 2.3rem;
+  margin: 0 0;
+  padding: 1rem;
+}
+
+#carousel-wrapper {
+  box-sizing: border-box;
+  position: inherit;
+}
+
+#carousel-wrapper img {
+  max-width: 100%; /*Width of each movie. Will also affect height*/
+  height: auto; /*Set to match the width. */
+}
+
+.container-slides {
+  background-color: #990000;
+  padding: 1rem 0;
+  /*Adds padding to entire carousel LEFT AND RIGHT MOVES DOTS*/
+}
+
+.carousel-cell {
+  /*! width = space between imgs. padding = padding around each individual img*/
+  width: 20%; /*Space between each movie*/
+  padding: 0 1rem; /*space */
+  display: flex; /*Side by side*/
+  min-height: 100%; /*Stretches to the bottom of the space*/
+}
+
+.carousel-cell.size-large {
+  width: 75%;
+}
+
 /*? Footer Styles & Formats*/
 .footer-wrapper {
   background-color: rgb(248, 248, 248);
@@ -96,6 +152,24 @@ nav a:focus {
 /*? Media Styles*/
 /*! This will control multiple items at this pixal point.*/
 /*!Pixals are good here. It's still responsive*/
+
+@media (max-width: 2000px) {
+  .carousel-cell {
+    width: 13%;
+  }
+
+  .carousel-cell.size-large {
+    width: 25%;
+  }
+
+  .flickity-prev-next-button {
+    /*This controls buttons*/
+    width: 50px;
+    height: 50px;
+    background: transparent;
+  }
+}
+
 @media (max-width: 1756px) {
   #site-title h1 {
     padding: 0 0;
@@ -195,6 +269,7 @@ nav a:focus {
     transition: all 1.75s ease-out; /*Creates flow out instead of shooting*/
     pointer-events: none; /*Safety for existing clicks on the page.*/
     /*While this is open, it cancels clicking on homepage elements.*/
+    z-index: 2; /*? This makes it so transition is above carousel-fade out*/
   }
 
   /*? . open is when the user clicks on the menu. Without this it won't open*/
@@ -205,6 +280,7 @@ nav a:focus {
     -webkit-clip-path: circle(1050px at 93% -10%);
     pointer-events: all; /*Opens clicking function back up. So, this means*/
     /*individuals would't be able to click homepage elements while menu open*/
+    z-index: 2; /*? This makes it so transition is above carousel-fade in*/
   }
 
   /*? Controlling the menu titles after open hamburger.*/
