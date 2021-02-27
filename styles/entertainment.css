@@ -72,16 +72,16 @@ nav a:focus {
   color: #ff4b4b;
 }
 
-/*? Movie-Wrapper Styles - Movies & Note*/
+/*? Carousel Wrapper Styles & Formats */
 
-#movie-section {
+#carousel-wrapper {
   /*Changes color of entire div*/
+  margin: 0 auto;
+  width: 100%;
   background-color: #f1f1f1;
 }
 
 #header1 {
-  width: 40%;
-  margin: 0 auto;
   padding: 0.6rem; /*This keeps margin to the top but adds space*/
   text-align: center; /*Centers within div itself*/
 }
@@ -92,48 +92,36 @@ nav a:focus {
   color: rgb(0, 0, 0);
   font-size: 2.3rem;
   margin: 0 0;
+  padding: 1rem;
 }
 
-#header1 h3 {
-  font-weight: 500;
+#carousel-wrapper {
+  box-sizing: border-box;
+  position: inherit;
 }
 
-#header1 h3 span {
-  font-weight: 600;
-  color: rgb(255, 0, 0);
+#carousel-wrapper img {
+  max-width: 100%; /*Width of each movie. Will also affect height*/
+  height: auto; /*Set to match the width. */
 }
 
-#header1 #blue {
-  color: rgb(45, 84, 255);
-}
-
-/*? Auto-fit lets CSS choose how many pictures to choose. Also responsive.*/
-/*? Repeat = how many columns?, which means autofit will pick the number available*/
-/*? Instead of setting px, we can use minmax(), which allows us to determine minumum*/
-/*? value of picture. So as soon as it doesn't have enough space for minimum is will*/
-/*? jump down. And, as soon as it has enough space (with 1fr), it will add another*/
-/*?to the row.? This is what makes it responsive. If there is a pixal amount in the*/
-/*? maximum, there wasn't enough entries. And I didn't want to make the pic huge.*/
-/*? Often it will be a pic or two. Otherwise it should be 1fr as max.*/
-/*? Increasing or decreasing minimum affects how many movies are in a row at once*/
-/*? because it affects the size of the movie.*/
-
-.movie-wrapper {
-  display: grid;
-  grid-template-columns: repeat(Auto-fit, minmax(350px, 1fr));
-  column-gap: 10px;
-  row-gap: 10px;
+.container-slides {
   background-color: #990000;
+  padding: 1rem 0; /*Adds padding to entire carousel*/
 }
 
-.movie-wrapper img {
-  width: 100%; /*? Image takes up 100% of width*/
-  height: 100%;
+.carousel-cell {
+  /*! width = space between imgs. padding = padding around each individual img*/
+  width: 20%; /*Space between each movie*/
+  padding: 0 1rem; /*space */
+  display: flex; /*Side by side*/
+  min-height: 100%; /*Stretches to the bottom of the space*/
 }
 
-/*? Show-Wrapper Styles - Movies & Note*/
+/*? Movie-Wrapper Styles - Movies & Note*/
 
-#show-section {
+#movie-section {
+  /*Changes color of entire div*/
   background-color: #f1f1f1;
 }
 
@@ -161,9 +149,69 @@ nav a:focus {
   color: rgb(255, 0, 0);
 }
 
+#header2 #blue {
+  color: rgb(45, 84, 255);
+}
+
+/*? Auto-fit lets CSS choose how many pictures to choose. Also responsive.*/
+/*? Repeat = how many columns?, which means autofit will pick the number available*/
+/*? Instead of setting px, we can use minmax(), which allows us to determine minumum*/
+/*? value of picture. So as soon as it doesn't have enough space for minimum is will*/
+/*? jump down. And, as soon as it has enough space (with 1fr), it will add another*/
+/*?to the row.? This is what makes it responsive. If there is a pixal amount in the*/
+/*? maximum, there wasn't enough entries. And I didn't want to make the pic huge.*/
+/*? Often it will be a pic or two. Otherwise it should be 1fr as max.*/
+/*? Increasing or decreasing minimum affects how many movies are in a row at once*/
+/*? because it affects the size of the movie.*/
+
+.movie-wrapper {
+  display: grid;
+  grid-template-columns: repeat(Auto-fit, minmax(350px, 1fr));
+  padding: 10px 5px;
+  column-gap: 10px;
+  row-gap: 10px;
+  background-color: #990000;
+}
+
+.movie-wrapper img {
+  width: 100%; /*? Image takes up 100% of width*/
+  height: 100%;
+}
+
+/*? Show-Wrapper Styles - Movies & Note*/
+
+#show-section {
+  background-color: #f1f1f1;
+}
+
+#header3 {
+  width: 40%;
+  margin: 0 auto;
+  padding: 0.6rem; /*This keeps margin to the top but adds space*/
+  text-align: center; /*Centers within div itself*/
+}
+
+#header3 h1 {
+  font-weight: 700;
+  letter-spacing: 0.1rem;
+  color: rgb(0, 0, 0);
+  font-size: 2.3rem;
+  margin: 0 0;
+}
+
+#header3 h3 {
+  font-weight: 500;
+}
+
+#header3 h3 span {
+  font-weight: 600;
+  color: rgb(255, 0, 0);
+}
+
 .show-wrapper {
   display: grid;
   grid-template-columns: repeat(Auto-fit, minmax(300px, 375px));
+  padding: 10px 5px;
   column-gap: 10px;
   row-gap: 10px;
   background-color: #990000;
@@ -204,6 +252,12 @@ nav a:focus {
 /*? Media Styles*/
 /*! This will control multiple items at this pixal point.*/
 /*!Pixals are good here. It's still responsive*/
+@media (max-width: 2000px) {
+  .carousel-cell {
+    width: 13%;
+  }
+}
+
 @media (max-width: 1756px) {
   #site-title h1 {
     padding: 0 0;
@@ -225,6 +279,11 @@ nav a:focus {
     margin: auto; /*Centers all the menu options to the center*/
   }
 
+  .flickity-page-dots .dot {
+    height: 9px;
+    width: 9px;
+  }
+
   .movie-wrapper {
     grid-template-columns: repeat(Auto-fit, minmax(250px, 1fr));
   }
@@ -244,6 +303,10 @@ nav a:focus {
 }
 
 @media screen and (max-width: 1200px) {
+  .flickity-page-dots .dot {
+    margin: 0 0.5rem;
+  }
+
   .footer-wrapper {
     padding: 2rem 0 0.01rem;
   }
@@ -311,6 +374,7 @@ nav a:focus {
     transition: all 1.75s ease-out; /*Creates flow out instead of shooting*/
     pointer-events: none; /*Safety for existing clicks on the page.*/
     /*While this is open, it cancels clicking on homepage elements.*/
+    z-index: 2; /*? Transitions above the carousel-fade out*/
   }
 
   /*? . open is when the user clicks on the menu. Without this it won't open*/
@@ -321,6 +385,7 @@ nav a:focus {
     -webkit-clip-path: circle(1050px at 93% -10%);
     pointer-events: all; /*Opens clicking function back up. So, this means*/
     /*individuals would't be able to click homepage elements while menu open*/
+    z-index: 2; /*? Transitions above the carousel-fade in*/
   }
 
   /*? Controlling the menu titles after open hamburger.*/
@@ -381,22 +446,21 @@ nav a:focus {
     letter-spacing: 0.1rem;
   }
 
-  #header1 {
-    width: 60%;
-  }
-
   #header1 h1 {
     font-weight: 500;
     letter-spacing: 0.1rem;
     font-size: 1.9rem;
   }
 
-  #header1 h3 {
-    font-size: 1rem;
+  .flickity-prev-next-button {
+    width: 30px;
+    height: 30px;
   }
 
-  .movie-wrapper {
-    grid-template-columns: repeat(Auto-fit, minmax(150px, 1fr));
+  .flickity-page-dots .dot {
+    margin: 0 0.3rem 0.2rem;
+    width: 7px;
+    height: 7px;
   }
 
   #header2 {
@@ -410,6 +474,24 @@ nav a:focus {
   }
 
   #header2 h3 {
+    font-size: 1rem;
+  }
+
+  .movie-wrapper {
+    grid-template-columns: repeat(Auto-fit, minmax(150px, 1fr));
+  }
+
+  #header3 {
+    width: 60%;
+  }
+
+  #header3 h1 {
+    font-weight: 500;
+    letter-spacing: 0.1rem;
+    font-size: 1.9rem;
+  }
+
+  #header3 h3 {
     font-size: 1rem;
   }
 
@@ -459,16 +541,15 @@ nav a:focus {
     font-size: 1.2rem;
   }
 
-  #header1 h3 {
-    font-size: 0.8rem;
+  .flickity-prev-next-button {
+    width: 25px;
+    height: 25px;
   }
 
-  .movie-wrapper {
-    grid-template-columns: repeat(Auto-fit, minmax(110px, 1fr));
-  }
-
-  #header2 {
-    width: 70%;
+  .flickity-page-dots .dot {
+    margin: 0 0.2rem 0.4rem;
+    width: 5px;
+    height: 5px;
   }
 
   #header2 h1 {
@@ -477,6 +558,23 @@ nav a:focus {
   }
 
   #header2 h3 {
+    font-size: 0.8rem;
+  }
+
+  .movie-wrapper {
+    grid-template-columns: repeat(Auto-fit, minmax(110px, 1fr));
+  }
+
+  #header3 {
+    width: 70%;
+  }
+
+  #header3 h1 {
+    font-weight: 500;
+    font-size: 1.2rem;
+  }
+
+  #header3 h3 {
     font-size: 0.8rem;
   }
 
@@ -521,25 +619,23 @@ nav a:focus {
     letter-spacing: 0.1rem;
   }
 
-  #header1 {
-    width: 65%;
-  }
-
   #header1 h1 {
-    font-weight: 500;
     font-size: 0.9rem;
   }
 
-  #header1 h3 {
-    font-size: 0.65rem;
+  .flickity-prev-next-button {
+    width: 20px;
+    height: 20px;
   }
 
-  .movie-wrapper {
-    grid-template-columns: repeat(Auto-fit, minmax(100px, 1fr));
+  .flickity-page-dots .dot {
+    margin: 0 0.15rem 0.6rem;
+    width: 3px;
+    height: 3px;
   }
 
   #header2 {
-    width: 80%;
+    width: 65%;
   }
 
   #header2 h1 {
@@ -548,6 +644,23 @@ nav a:focus {
   }
 
   #header2 h3 {
+    font-size: 0.65rem;
+  }
+
+  .movie-wrapper {
+    grid-template-columns: repeat(Auto-fit, minmax(100px, 1fr));
+  }
+
+  #header3 {
+    width: 80%;
+  }
+
+  #header3 h1 {
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
+
+  #header3 h3 {
     font-size: 0.65rem;
   }
 
@@ -585,3 +698,4 @@ nav a:focus {
     font-size: 12px; /*Controls sizing of all options*/
   }
 }
+
