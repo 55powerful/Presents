@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
     <link rel="icon" href="images/icons/entertainment.ico">
     <link rel="stylesheet" href="styles/entertainment.css">
     <title>Entertainment</title>
@@ -35,8 +36,38 @@
         </div>
     </header>
 
-    <section id=movie-section>
+    <section id=carousel-wrapper>
         <div id=header1>
+            <h1>Entertainment Highlights</h1>
+        </div>
+        <div class="container-slides">
+            <div class="carousel-cell">
+                <img src="images/movies/lord-combo.jpg">
+            </div>
+            <div class="carousel-cell">
+                <img src="images/movies/hobbit-combo.jpeg">
+            </div>
+            <div class="carousel-cell">
+                <img src="images/movies/maleficent2.jpeg">
+            </div>
+            <div class="carousel-cell">
+                <img src="images/movies/expend2.jpg">
+            </div>
+            <div class="carousel-cell">
+                <img src="images/movies/expend3.jpg">
+            </div>
+            <div class="carousel-cell">
+                <img src="images/movies/onward.webp">
+            </div>
+            <div class="carousel-cell">
+                <img src="images/movies/croods2.jpg">
+            </div>
+        </div>
+    </section>
+    <br>
+    <br>
+    <section id=movie-section>
+        <div id=header2>
             <h1>Movies</h1>
             <h3><span>Note:</span> <span id=blue>Blu-Ray</span> versions are preferred,<br>and digital codes never hurt!</h3>
         </div>
@@ -69,7 +100,7 @@
     </section>
 
     <section id=show-section>
-        <div id="header2">
+        <div id="header3">
             <h1>Shows</h1>
             <h3><span>Note:</span> The covers identify the needed seasons.</h3>
         </div>
@@ -85,6 +116,13 @@
         <p class="copyright">© 2021 Andrew Powers</p>
     </footer>
 
+
+
+    <!--! NOTE: The order below matters. The first source = Flickity Jquery-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!--! Second source = Flickity Java Script -->
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+    <script src="javascript/carousel.js"></script>
     <script src="javascript/header.js"></script>
 </body>
 </html>
