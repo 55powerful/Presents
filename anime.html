@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
     <link rel="icon" href="images/icons/anime.ico">
     <link rel="stylesheet" href="styles/anime.css">
     <title>Anime</title>
@@ -35,33 +36,78 @@
         </div>
     </header>
 
-    <section id=movie-section>
+    <section id=carousel-wrapper>
         <div id=header1>
+            <h1>Anime Highlights</h1>
+        </div>
+        <div class="container-slides">
+            <div class="carousel-cell">
+                <img src="images/anime/movies/konosuba1.jpg">
+            </div>
+            <div class="carousel-cell">
+                <img src="images/anime/shows/kono1.jpg">
+            </div>
+            <div class="carousel-cell">
+                <img src="images/anime/shows/kono2.jpg">
+            </div>
+            <div class="carousel-cell">
+                <img src="images/anime/movies/heaven-movie1.jpg">
+            </div>
+            <div class="carousel-cell">
+                <img src="images/anime/movies/heaven-movie2.jpg">
+            </div>
+            <div class="carousel-cell">
+                <img src="images/anime/shows/heaven1.PNG">
+            </div>
+            <div class="carousel-cell">
+                <img src="images/anime/shows/heaven2.jpeg">
+            </div>
+            <div class="carousel-cell">
+                <img src="images/anime/shows/chunibyo.PNG">
+            </div>
+            <div class="carousel-cell">
+                <img src="images/anime/movies/howl.jpg">
+            </div>
+            <div class="carousel-cell">
+                <img src="images/anime/movies/weathering.jpg">
+            </div>
+        </div>
+    </section>
+    <br>
+    <br>
+
+    <section id=movie-section>
+        <div id=header2>
             <h1><span>Note:</span> Please double check movies and shows below are in English (dubbed)!<br>
             Again, <span id=blue>Blu-Ray</span> & digital codes are preferred.</h1>
         </div>
-        <div id=header2>
+        <div id=header3>
             <h1>Movies</h1>
         </div>
         <div class="movie-wrapper">
             <img src="images/anime/movies/konosuba1.jpg" alt="Konosuba-Legend of Crimson">
             <img src="images/anime/movies/howl.jpg" alt="Howls Moving Castle-Studio Ghibli">
             <img src="images/anime/movies/weathering.jpg" alt="Weathering With You-Studio Ghibli">
+            <img src="images/anime/movies/heaven-movie1.jpg" alt="Heavens Lost Property: The Angeloid of Clockwork">
+            <img src="images/anime/movies/heaven-movie2.jpg" alt="Heavens Lost Property: Eternal My Master">
             <img src="images/anime/movies/pokemon.jpg" alt="Pokemon 3 Movie Collection">
             <img src="images/anime/movies/sins.jpg" alt="Seven Deadly Sins-Prisoners of the Sky">
         </div>
     </section>
 
     <section id=show-section>
-        <div id=header3>
+        <div id=header4>
             <h1>Shows</h1>
             <h3><span>Note:</span> The covers identify the needed seasons.</h3>
         </div>
         <div class="show-wrapper">
             <img src="images/anime/shows/kono1.jpg" alt="Konosuba-Season1 & OVA">
             <img src="images/anime/shows/kono2.jpg" alt="Konosuba-Season2 & OVA">
-            <img src="images/anime/shows/senko.PNG" alt="The Helpful Fox Senko-San">
+            <img src="images/anime/shows/chunibyo.PNG" alt="Love, Chunibyo, and other delusions-Ultimate collection">
+            <img src="images/anime/shows/heaven1.PNG" alt="Heavens Lost Property-Season 1">
+            <img src="images/anime/shows/heaven2.jpeg" alt="Heavens Lost Property-Season 2">
             <img src="images/anime/shows/kobayashi.jpg" alt="Miss Kobayashi Dragon Maid-Complete Series">
+            <img src="images/anime/shows/senko.PNG" alt="The Helpful Fox Senko-San">
             <img src="images/anime/shows/sins-1&2.jpg" alt="Seven Deadly Sins-Season 1 & 2 & OVA">
         </div>
     </section>
@@ -73,6 +119,11 @@
         <p class="copyright">Copyright © 2021 Andrew Powers. All rights reserved.</p>
     </footer>
 
+    <!--! NOTE: The order below matters. The first source = Flickity Jquery-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!--! Second source = Flickity Java Script -->
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+    <script src="javascript/carousel.js"></script>
     <script src="javascript/header.js"></script>
 </body>
 </html>
