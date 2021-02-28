@@ -72,6 +72,52 @@ nav a:focus {
   color: #ff4b4b;
 }
 
+/*? Carousel Wrapper Styles & Formats */
+
+#carousel-wrapper {
+  /*Changes color of entire div*/
+  margin: 0 auto;
+  width: 100%;
+  background-color: #f1f1f1;
+}
+
+#header1 {
+  padding: 0.6rem; /*This keeps margin to the top but adds space*/
+  text-align: center; /*Centers within div itself*/
+}
+
+#header1 h1 {
+  font-weight: 700;
+  letter-spacing: 0.1rem;
+  color: rgb(0, 0, 0);
+  font-size: 2.3rem;
+  margin: 0 0;
+  padding: 1rem;
+}
+
+#carousel-wrapper {
+  box-sizing: border-box;
+  position: inherit;
+}
+
+#carousel-wrapper img {
+  max-width: 100%; /*Width of each movie. Will also affect height*/
+  height: auto; /*Set to match the width. */
+}
+
+.container-slides {
+  background-color: #990000;
+  padding: 1rem 0; /*Adds padding to entire carousel*/
+}
+
+.carousel-cell {
+  /*! width = space between imgs. padding = padding around each individual img*/
+  width: 20%; /*Space of each movie.*/
+  padding: 0 1rem; /*space */
+  display: flex; /*Side by side*/
+  min-height: 100%; /*Stretches to the bottom of the space*/
+}
+
 /*? Movie-Wrapper Styles - Movies & Note*/
 
 #movie-section {
@@ -79,7 +125,7 @@ nav a:focus {
   background-color: #f1f1f1;
 }
 
-#header1 {
+#header2 {
   width: 96%;
   margin: 0 auto;
   padding-top: 2rem; /*This keeps margin to the top but adds space*/
@@ -87,30 +133,30 @@ nav a:focus {
   text-align: center; /*Centers within div itself*/
 }
 
-#header1 h1 {
+#header2 h1 {
   font-weight: 500;
   color: rgb(0, 0, 0);
   font-size: 1.5rem;
   margin: 0 0;
 }
 
-#header1 h1 span {
+#header2 h1 span {
   font-weight: 600;
   color: rgb(255, 0, 0);
 }
 
-#header1 #blue {
+#header2 #blue {
   color: rgb(45, 84, 255);
 }
 
-#header2 {
+#header3 {
   width: 40%;
   margin: 0.5rem auto;
   padding: 1rem; /*This keeps margin to the top but adds space*/
   text-align: center; /*Centers within div itself*/
 }
 
-#header2 h1 {
+#header3 h1 {
   font-weight: 700;
   letter-spacing: 0.1rem;
   color: rgb(0, 0, 0);
@@ -132,6 +178,7 @@ nav a:focus {
 .movie-wrapper {
   display: grid;
   grid-template-columns: repeat(Auto-fit, minmax(350px, 1fr));
+  padding: 10px 5px;
   column-gap: 10px;
   row-gap: 10px;
   background-color: #990000;
@@ -148,14 +195,14 @@ nav a:focus {
   background-color: #f1f1f1;
 }
 
-#header3 {
+#header4 {
   width: 40%;
   margin: 0 auto;
   padding: 0.6rem; /*This keeps margin to the top but adds space*/
   text-align: center; /*Centers within div itself*/
 }
 
-#header3 h1 {
+#header4 h1 {
   font-weight: 700;
   letter-spacing: 0.1rem;
   color: rgb(0, 0, 0);
@@ -163,11 +210,11 @@ nav a:focus {
   margin: 0 0;
 }
 
-#header3 h3 {
+#header4 h3 {
   font-weight: 500;
 }
 
-#header3 h3 span {
+#header4 h3 span {
   font-weight: 600;
   color: rgb(255, 0, 0);
 }
@@ -175,6 +222,7 @@ nav a:focus {
 .show-wrapper {
   display: grid;
   grid-template-columns: repeat(Auto-fit, minmax(350px, 1fr));
+  padding: 10px 5px;
   column-gap: 10px;
   row-gap: 10px;
   background-color: #990000;
@@ -215,6 +263,12 @@ nav a:focus {
 /*? Media Styles*/
 /*! This will control multiple items at this pixal point.*/
 /*!Pixals are good here. It's still responsive*/
+@media (max-width: 2000px) {
+  .carousel-cell {
+    width: 13%;
+  }
+}
+
 @media (max-width: 1756px) {
   #site-title h1 {
     padding: 0 0;
@@ -236,6 +290,15 @@ nav a:focus {
     margin: auto; /*Centers all the menu options to the center*/
   }
 
+  .carousel-cell {
+    width: 20%;
+  }
+
+  .flickity-page-dots .dot {
+    height: 9px;
+    width: 9px;
+  }
+
   .movie-wrapper {
     grid-template-columns: repeat(Auto-fit, minmax(250px, 1fr));
   }
@@ -255,6 +318,14 @@ nav a:focus {
 }
 
 @media screen and (max-width: 1200px) {
+  .carousel-cell {
+    width: 25%;
+  }
+
+  .flickity-page-dots .dot {
+    margin: 0 0.5rem;
+  }
+
   .footer-wrapper {
     padding: 2rem 0 0.01rem;
   }
@@ -322,6 +393,7 @@ nav a:focus {
     transition: all 1.75s ease-out; /*Creates flow out instead of shooting*/
     pointer-events: none; /*Safety for existing clicks on the page.*/
     /*While this is open, it cancels clicking on homepage elements.*/
+    z-index: 2; /*? Transitions above the carousel-fade out*/
   }
 
   /*? . open is when the user clicks on the menu. Without this it won't open*/
@@ -332,6 +404,7 @@ nav a:focus {
     -webkit-clip-path: circle(1050px at 93% -10%);
     pointer-events: all; /*Opens clicking function back up. So, this means*/
     /*individuals would't be able to click homepage elements while menu open*/
+    z-index: 2; /*? Transitions above the carousel-fade in*/
   }
 
   /*? Controlling the menu titles after open hamburger.*/
@@ -392,16 +465,37 @@ nav a:focus {
     letter-spacing: 0.1rem;
   }
 
-  #header1 {
+  #header1 h1 {
+    font-weight: 500;
+    letter-spacing: 0.1rem;
+    font-size: 1.9rem;
+  }
+
+  .carousel-cell {
+    width: 30%;
+  }
+
+  .flickity-prev-next-button {
+    width: 30px;
+    height: 30px;
+  }
+
+  .flickity-page-dots .dot {
+    margin: 0 0.3rem 0.2rem;
+    width: 7px;
+    height: 7px;
+  }
+
+  #header2 {
     width: 65%;
     padding-top: 1rem;
   }
 
-  #header1 h1 {
+  #header2 h1 {
     font-size: 1.1rem;
   }
 
-  #header2 h1 {
+  #header3 h1 {
     font-weight: 500;
     letter-spacing: 0.1rem;
     font-size: 1.9rem;
@@ -411,17 +505,17 @@ nav a:focus {
     grid-template-columns: repeat(Auto-fit, minmax(150px, 1fr));
   }
 
-  #header3 {
+  #header4 {
     width: 60%;
   }
 
-  #header3 h1 {
+  #header4 h1 {
     font-weight: 500;
     letter-spacing: 0.1rem;
     font-size: 1.9rem;
   }
 
-  #header3 h3 {
+  #header4 h3 {
     font-size: 1rem;
   }
 
@@ -466,30 +560,50 @@ nav a:focus {
     letter-spacing: 0.1rem;
   }
 
-  #header1 {
+  #header1 h1 {
+    font-weight: 500;
+    font-size: 1.2rem;
+  }
+
+  .carousel-cell {
+    width: 40%;
+  }
+
+  .flickity-prev-next-button {
+    width: 25px;
+    height: 25px;
+  }
+
+  .flickity-page-dots .dot {
+    margin: 0 0.2rem 0.4rem;
+    width: 5px;
+    height: 5px;
+  }
+
+  #header2 {
     width: 76%;
   }
 
-  #header1 h1 {
+  #header2 h1 {
     font-size: 0.9rem;
   }
 
-  #header2 h1 {
+  #header3 h1 {
     font-size: 1.2rem;
   }
   .movie-wrapper {
     grid-template-columns: repeat(Auto-fit, minmax(100px, 1fr));
   }
 
-  #header3 {
+  #header4 {
     width: 70%;
   }
 
-  #header3 h1 {
+  #header4 h1 {
     font-size: 1.2rem;
   }
 
-  #header3 h3 {
+  #header4 h3 {
     font-size: 0.8rem;
   }
 
@@ -534,15 +648,34 @@ nav a:focus {
     letter-spacing: 0.1rem;
   }
 
-  #header1 {
+  #header1 h1 {
+    font-size: 0.9rem;
+  }
+
+  .carousel-cell {
+    width: 50%;
+  }
+
+  .flickity-prev-next-button {
+    width: 20px;
+    height: 20px;
+  }
+
+  .flickity-page-dots .dot {
+    margin: 0 0.15rem 0.6rem;
+    width: 3px;
+    height: 3px;
+  }
+
+  #header2 {
     width: 85%;
   }
 
-  #header1 h1 {
+  #header2 h1 {
     font-size: 0.7rem;
   }
 
-  #header2 h1 {
+  #header3 h1 {
     font-size: 0.9rem;
   }
 
@@ -550,16 +683,16 @@ nav a:focus {
     grid-template-columns: repeat(Auto-fit, minmax(100px, 1fr));
   }
 
-  #header3 {
+  #header4 {
     width: 80%;
   }
 
-  #header3 h1 {
+  #header4 h1 {
     font-weight: 500;
     font-size: 0.9rem;
   }
 
-  #header3 h3 {
+  #header4 h3 {
     font-size: 0.65rem;
   }
 
