@@ -112,7 +112,7 @@ nav a:focus {
 
 .carousel-cell {
   /*! width = space between imgs. padding = padding around each individual img*/
-  width: 20%; /*Space between each movie*/
+  width: 20%; /*Space of each movie.*/
   padding: 0 1rem; /*space */
   display: flex; /*Side by side*/
   min-height: 100%; /*Stretches to the bottom of the space*/
@@ -279,6 +279,10 @@ nav a:focus {
     margin: auto; /*Centers all the menu options to the center*/
   }
 
+  .carousel-cell {
+    width: 20%;
+  }
+
   .flickity-page-dots .dot {
     height: 9px;
     width: 9px;
@@ -303,6 +307,10 @@ nav a:focus {
 }
 
 @media screen and (max-width: 1200px) {
+  .carousel-cell {
+    width: 25%;
+  }
+
   .flickity-page-dots .dot {
     margin: 0 0.5rem;
   }
@@ -452,6 +460,10 @@ nav a:focus {
     font-size: 1.9rem;
   }
 
+  .carousel-cell {
+    width: 30%;
+  }
+
   .flickity-prev-next-button {
     width: 30px;
     height: 30px;
@@ -541,6 +553,10 @@ nav a:focus {
     font-size: 1.2rem;
   }
 
+  .carousel-cell {
+    width: 40%;
+  }
+
   .flickity-prev-next-button {
     width: 25px;
     height: 25px;
@@ -621,6 +637,10 @@ nav a:focus {
 
   #header1 h1 {
     font-size: 0.9rem;
+  }
+
+  .carousel-cell {
+    width: 50%;
   }
 
   .flickity-prev-next-button {
